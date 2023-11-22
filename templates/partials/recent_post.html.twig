@@ -1,0 +1,21 @@
+<div class="col-xs-12 col-sm-12">
+    <div class="post">
+    <div class="post-heading">
+        <span>{{ recent.publishedAt | date('d') }} {{ recent.publishedAt | date('F') }}</span>
+        <img class="img-responsive" src="{{ asset('images/index/gallery/' ~ recent.image) }}" alt="{{recent.title}}">
+    </div>
+    <div class="post-body">
+        <p><a href="{{ path('single_post', {'slug':recent.slug}) }}"><strong>{{recent.title}}</strong></a></p>
+        <hr>
+    </div>
+    {% if recent.user %}
+        <h5> By <span>{{ recent.user.name }}</span></h5>
+        {% else %}
+            <h5> By <span>Unknown</span></h5>
+        {% endif %}
+        <p><i class="fa fa-clock-o sr-icons"></i> 
+         {{ recent.publishedAt | date('h') }} 
+         {{ recent.publishedAt | date('A') }}
+         </p>
+    </div>
+</div>
